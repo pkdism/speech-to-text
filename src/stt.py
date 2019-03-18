@@ -4,8 +4,6 @@ import googlesearch
 import webbrowser
 import time
 import string
-# from os import path
-# from pydub import AudioSegment
 
 sample_rate = 48000
 chunk_size = 2048
@@ -63,19 +61,19 @@ with sr.Microphone(device_index = device_id, sample_rate = sample_rate, chunk_si
 	try:
 		idx_text = r.recognize_google(idx_audio)
 
-		print("You said", idx_text)
+		# print("You said", idx_text)
 
 		proxy_words = {
-			1: ['first', 'first one'],
-			2: ['second', 'second one'],
-			3: ['third', 'third one'],
-			4: ['fourth', 'fourth one'],
-			5: ['fifth', 'fifth one'],
-			6: ['sixth', 'sixth one'],
-			7: ['seventh', 'seventh one'],
-			8: ['eighth', 'eighth one'],
-			9: ['ninth', 'ninth one'],
-			10: ['tenth', 'tenth one']
+			1: ['first', '1st', 'first one', 'first 1', '1st one', '1st 1'],
+			2: ['second', '2nd', 'second one', 'second 1', '2nd one', '2nd 1'],
+			3: ['third', '3rd', 'third one', 'third 1', '3rd one', '3rd 1'],
+			4: ['fourth', 'fourth one', '4th', 'fourth 1', '4th one', '4th 1', '41'],
+			5: ['fifth', 'fifth one', '5th', 'fifth 1', '5th one', '5th 1', '51'],
+			6: ['sixth', 'sixth one', '6th', 'sixth 1', '6th one', '6th 1', '61'],
+			7: ['seventh', 'seventh one', '7th', 'seventh 1', '7th one', '7th 1', '71'],
+			8: ['eighth', 'eighth one', '8th', 'eighth 1', '8th one', '8th 1', '81'],
+			9: ['ninth', 'ninth one', '9th', 'ninth 1', '9th one', '9th 1', '91'],
+			10: ['tenth', 'tenth one', '10th', 'tenth 1', '10th one', '10th 1']
 		}
 
 		proxy_flag = False
@@ -97,41 +95,7 @@ with sr.Microphone(device_index = device_id, sample_rate = sample_rate, chunk_si
 
 			except ValueError:
 				print("That's not an index")
-		
 
-		# if idx_text.lower() in ['first', '1st', 'first one', 'first 1', '1st one', '1st 1']:
-		# 	idx = 0
-		# elif idx_text.lower() in ['second', '2nd', 'second one', 'second 1', '2nd one', '2nd 1']:
-		# 	idx = 1
-		# elif idx_text.lower() in ['third', '3rd', 'third one', 'third 1', '3rd one', '3rd 1']:
-		# 	idx = 2
-		# elif idx_text.lower() in ['fourth', 'fourth one', '4th', 'fourth 1', '4th one', '4th 1']:
-		# 	idx = 3
-		# elif idx_text.lower() in ['fifth', 'fifth one', '5th', 'fifth 1', '5th one', '5th 1']:
-		# 	idx = 4
-		# elif idx_text.lower() in ['sixth', 'sixth one', '6th', 'sixth 1', '6th one', '6th 1']:
-		# 	idx = 5
-		# elif idx_text.lower() in ['seventh', 'seventh one', '7th', 'seventh 1', '7th one', '7th 1']:
-		# 	idx = 6
-		# elif idx_text.lower() in ['eighth', 'eighth one', '8th', 'eighth 1', '8th one', '8th 1']:
-		# 	idx = 7
-		# elif idx_text.lower() in ['ninth', 'ninth one', '9th', 'ninth 1', '9th one', '9th 1']:
-		# 	idx = 8
-		# elif idx_text.lower() in ['tenth', 'tenth one', '10th', 'tenth 1', '10th one', '10th 1']:
-		# 	idx = 9
-		# else:
-		# 	try:
-		# 		idx_int = int(idx_text)
-		# 		if idx_int >= 1 and idx_int <= 10:
-		# 			idx = (int(idx_text)-1)
-		# 			print("You said", idx_int)
-		# 		else:
-		# 			print("You said", idx_int, "which is out of range")
-		# 			idx_text = ""
-
-
-		# 	except ValueError:
-		# 		print("That's not an index")
 
 	except sr.UnknownValueError:
 		print("No input received. Opening first result on browser..")
@@ -147,7 +111,7 @@ else:
 
 time.sleep(3)
 
-print(idx_text)
+# print(idx_text)
 # print(idx)
 
 webbrowser.open(url[idx])
